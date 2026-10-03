@@ -15,7 +15,7 @@ A beginner-friendly ESP8266 project that measures tank water level and estimates
 
 ## Parts
 
-- ESP8266 NodeMCU development board (the pin labels below assume a NodeMCU-style board)
+- ESP8266 NodeMCU development board (this sketch is not compatible with a classic Arduino Uno)
 - HC-SR04 ultrasonic distance sensor
 - MQ-4 gas sensor module
 - 128×64 SH1106 I²C OLED module (address `0x3C` in this sketch)
@@ -67,8 +67,8 @@ pinMode(MQ4_AO_PIN, INPUT);
 1. Install the Arduino IDE and add ESP8266 board support using the official ESP8266 Arduino Core instructions.
 2. In Boards Manager, install the ESP8266 platform. Select your NodeMCU/ESP8266 board and the correct USB port.
 3. In Library Manager, install **Adafruit GFX Library** and **Adafruit SH110X**. The other listed headers are included with the ESP8266 core or Arduino framework.
-4. Copy `firmware/secrets.example.h` to `firmware/secrets.h`. Replace the two example values with your Wi-Fi network name and password. `secrets.h` is ignored by Git; do not add it to a public commit.
-5. Open `firmware/water.ino` in Arduino IDE. The `secrets.h` file must remain beside the sketch.
+4. Copy `firmware/secrets.example.h` to `firmware/secrets.h`. Replace the example Wi-Fi and fallback-hotspot values with your own settings. `secrets.h` is ignored by Git; do not add it to a public commit.
+5. Open `firmware/project_hydra.ino` in Arduino IDE. The `secrets.h` file must remain beside the sketch.
 6. Confirm your wiring and voltage levels, connect the board by USB, select the board and port, then click **Upload**.
 7. Open Serial Monitor at **115200 baud**. After it joins Wi-Fi, use the printed local IP address in a browser. The device also attempts `http://hydra.local` on networks that support mDNS.
 8. If Wi-Fi does not connect, verify the values in your local `secrets.h`, network range, and serial output. The ESP8266 generally requires a 2.4 GHz Wi-Fi network.
@@ -77,11 +77,11 @@ pinMode(MQ4_AO_PIN, INPUT);
 
 - **Hardware mode:** Visit the URL printed by the sketch after Wi-Fi connects. The ESP serves the dashboard and provides `/level` and `/gas` readings.
 - **Demo mode:** Open `dashboard/hydra.html` in a browser. It can show simulated dashboard data without a device. Simulated values are not sensor measurements.
-- The dashboard's optional weather panel is disabled in this public starter copy. Do not put private API keys in a public HTML file: browser code is visible to anyone who opens it.
+- The dashboard uses synthetic demo locations and node labels; it does not include private facility coordinates. The optional weather panel is disabled in this public starter copy. Do not put private API keys in a public HTML file: browser code is visible to anyone who opens it.
 
 ## Adjusting thresholds
 
-The main settings are near the top of `firmware/water.ino`: `TANK_EMPTY_CM`, `TANK_FULL_CM`, `ALERT_PERCENT`, `GAS_ALERT_PPM`, and related release values. Calibrate the empty/full distances for your tank. MQ-4 values depend on sensor warm-up, calibration, supply, airflow, and the particular module; do not treat the displayed ppm as a safety measurement.
+The main settings are near the top of `firmware/project_hydra.ino`: `TANK_EMPTY_CM`, `TANK_FULL_CM`, `ALERT_PERCENT`, `GAS_ALERT_PPM`, and related release values. Calibrate the empty/full distances for your tank. MQ-4 values depend on sensor warm-up, calibration, supply, airflow, and the particular module; do not treat the displayed ppm as a safety measurement.
 
 ## Troubleshooting
 
@@ -94,7 +94,7 @@ The main settings are near the top of `firmware/water.ino`: `TANK_EMPTY_CM`, `TA
 ## Repository layout
 
 ```text
-firmware/water.ino          ESP8266 firmware
+firmware/project_hydra.ino          ESP8266 firmware
 firmware/secrets.example.h  Safe Wi-Fi configuration template
 firmware/secrets.h          Your local Wi-Fi settings (ignored by Git)
 dashboard/hydra.html        Standalone dashboard and demo mode
@@ -104,4 +104,6 @@ docs/WIRING.md              Focused wiring and pin-mode reference
 ## Credits and limitations
 
 This repository organizes the supplied HYDRA prototype into a safer beginner project. Sensor accuracy, electrical compatibility, dashboard behavior, and alarm performance must be verified on the actual hardware before use. Contributions and issue reports are welcome.
+
+
 
