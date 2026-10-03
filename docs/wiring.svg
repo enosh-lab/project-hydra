@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">HYDRA ESP8266 wiring map</title>
+  <desc id="desc">NodeMCU connections to an ultrasonic sensor, methane sensor, OLED display, and buzzer.</desc>
+  <rect width="1200" height="680" rx="28" fill="#f4f7fb"/>
+  <text x="54" y="64" fill="#10223a" font-family="Arial,sans-serif" font-size="30" font-weight="700">HYDRA · ESP8266 wiring map</text>
+  <text x="54" y="96" fill="#52647b" font-family="Arial,sans-serif" font-size="16">NodeMCU labels shown. Confirm your exact board pinout before wiring.</text>
+  <rect x="480" y="145" width="240" height="390" rx="24" fill="#15283f"/>
+  <rect x="542" y="160" width="116" height="38" rx="10" fill="#243d5d"/>
+  <text x="600" y="185" text-anchor="middle" fill="#e9f2fc" font-family="Arial,sans-serif" font-size="16" font-weight="700">ESP8266</text>
+  <text x="600" y="220" text-anchor="middle" fill="#9db4ce" font-family="Arial,sans-serif" font-size="13">NodeMCU board</text>
+  <g font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#15283f">
+    <rect x="458" y="250" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="494" y="269" text-anchor="middle">D6 / 12</text>
+    <rect x="458" y="292" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="494" y="311" text-anchor="middle">D7 / 13</text>
+    <rect x="458" y="334" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="494" y="353" text-anchor="middle">D5 / 14</text>
+    <rect x="458" y="376" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="494" y="395" text-anchor="middle">A0</text>
+    <rect x="670" y="250" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="706" y="269" text-anchor="middle">D2 / SDA</text>
+    <rect x="670" y="292" width="72" height="28" rx="8" fill="#d8e8fb"/><text x="706" y="311" text-anchor="middle">D1 / SCL</text>
+    <rect x="548" y="478" width="104" height="28" rx="8" fill="#d8e8fb"/><text x="600" y="497" text-anchor="middle">GND (shared)</text>
+  </g>
+  <g fill="none" stroke-width="4" stroke-linecap="round">
+    <path d="M458 264 C375 264 374 234 325 234" stroke="#2878d0"/><path d="M458 306 C375 306 374 276 325 276" stroke="#11a3a3"/>
+    <path d="M458 348 C370 348 370 447 325 447" stroke="#e69b26"/><path d="M458 390 C360 390 360 535 325 535" stroke="#8b68cf"/>
+    <path d="M742 264 C825 264 827 234 875 234" stroke="#2771b8"/><path d="M742 306 C825 306 827 276 875 276" stroke="#19a0a0"/>
+    <path d="M600 506 C600 584 395 584 325 584" stroke="#53677f"/><path d="M600 506 C600 610 805 610 875 610" stroke="#53677f"/>
+  </g>
+  <g font-family="Arial,sans-serif">
+    <g><rect x="70" y="190" width="255" height="125" rx="18" fill="#fff" stroke="#d7e0eb"/><text x="94" y="224" fill="#10223a" font-size="19" font-weight="700">HC-SR04 ultrasonic</text><text x="94" y="254" fill="#52647b" font-size="15">TRIG → D6 / GPIO12</text><text x="94" y="281" fill="#52647b" font-size="15">ECHO → D7 / GPIO13</text><text x="94" y="302" fill="#b34736" font-size="12" font-weight="700">Echo needs 5 V → 3.3 V shifting</text></g>
+    <g><rect x="70" y="400" width="255" height="92" rx="18" fill="#fff" stroke="#d7e0eb"/><text x="94" y="434" fill="#10223a" font-size="19" font-weight="700">Buzzer module</text><text x="94" y="463" fill="#52647b" font-size="15">Signal → D5 / GPIO14</text><text x="94" y="484" fill="#52647b" font-size="12">Use a driver if current is too high</text></g>
+    <g><rect x="70" y="510" width="255" height="80" rx="18" fill="#fff" stroke="#d7e0eb"/><text x="94" y="544" fill="#10223a" font-size="19" font-weight="700">MQ-4 gas module</text><text x="94" y="571" fill="#52647b" font-size="15">AO → A0 (protect ADC input)</text></g>
+    <g><rect x="875" y="190" width="255" height="125" rx="18" fill="#fff" stroke="#d7e0eb"/><text x="899" y="224" fill="#10223a" font-size="19" font-weight="700">SH1106 OLED</text><text x="899" y="254" fill="#52647b" font-size="15">SDA → D2 / GPIO4</text><text x="899" y="281" fill="#52647b" font-size="15">SCL → D1 / GPIO5</text><text x="899" y="302" fill="#52647b" font-size="12">I²C address: 0x3C</text></g>
+    <g><rect x="875" y="570" width="255" height="80" rx="18" fill="#fff" stroke="#d7e0eb"/><text x="899" y="604" fill="#10223a" font-size="19" font-weight="700">Common ground</text><text x="899" y="631" fill="#52647b" font-size="15">All module grounds → ESP GND</text></g>
+  </g>
+  <rect x="70" y="620" width="720" height="34" rx="10" fill="#fff4e7" stroke="#f1d7b2"/><text x="88" y="642" fill="#76501e" font-family="Arial,sans-serif" font-size="13" font-weight="700">Power modules from suitable supplies; ESP8266 GPIO and ADC inputs are not 5 V tolerant.</text>
+</svg>
+
