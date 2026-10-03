@@ -1,0 +1,8 @@
+# Local secrets and build files
+firmware/secrets.h
+*.elf
+*.bin
+*.hex
+.DS_Store
+Thumbs.db
+
